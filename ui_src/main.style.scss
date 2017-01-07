@@ -1,0 +1,8 @@
+@import './style/config';
+
+html, body {
+	background-color: color(main-content, backdrop);
+  font-size: 16px;
+	margin: 0;
+	padding: 1rem;
+}

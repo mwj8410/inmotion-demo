@@ -1,0 +1,51 @@
+
+
+
+
+// ----- ----- ----- ----- //
+// ----- Typography  ----- //
+// ----- ----- ----- ----- //
+@mixin font($font-name) {
+  @each $property, $value in map-get($font-palettes, $font-name) {
+    #{$property}: $value;
+  }
+}
+
+@mixin typeset($name) {
+  @each $property, $value in map-get($type-sets, $name) {
+    #{$property}: $value;
+  }
+}
+
+// ----- ----- ----- ----- //
+// ----- Visibility  ----- //
+// ----- ----- ----- ----- //
+@mixin hide-for($size-name, $only: false) {
+  @if $only {
+    $next-break-point-value: #{map-get-next-by-key($breakpoints, $size-name)};
+    @if $next-break-point-value {
+      @media screen and (min-width: #{map-get($breakpoints, $size-name)}) and (max-width: #{$next-break-point-value - 1}) {
+        display: none;
+      }
+    }
+  } @else {
+    @media screen and (min-width: #{map-get($breakpoints, $size-name)}) {
+      display: none;
+    }
+  }
+}
+
+@mixin show-for($size-name, $only: false) {
+  @if $only not false {
+    $next-break-point-value: #{map-get-next-by-key($breakpoints, $size-name)};
+    @if $next-break-point-value {
+      @media screen and (min-width: #{map-get($breakpoints, $size-name)}) and (max-width: #{$next-break-point-value - 1}) {
+        display: block;
+      }
+    }
+  } @else {
+    @media screen and (min-width: #{map-get($breakpoints, $size-name)}) {
+      display: block;
+    }
+  }
+}
