@@ -1,7 +1,9 @@
+const bodyParser = require('body-parser');
 const express = require('express');
 const http = require('http');
 const path = require('path');
-const routs = require('./api/routs');
+
+var routs;
 
 var config = require('./config/production').api,
   router = express(),
@@ -17,6 +19,8 @@ try {
 // Now,
 global.config = config;
 
+routs = require('./api/routs');
+
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
@@ -29,6 +33,9 @@ router.use((req, res, next) => {
   );
   next();
 });
+
+router.use(bodyParser.json()); // for parsing application/json
+router.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 router.use('/app', express.static(staticContentPath));
 
