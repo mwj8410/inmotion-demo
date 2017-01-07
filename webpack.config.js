@@ -21,7 +21,8 @@ module.exports = {
     react: "React"
   },
   output: {
-    filename: './hosted/js/[name].js'
+    filename: 'js/[name].js',
+    path: './hosted/'
   },
   module: {
     loaders: [
@@ -38,29 +39,25 @@ module.exports = {
       { test: /\.html$/, loader: 'html' }
     ]
   },
-  // resolve: {
-  //   alias: {}
-  // },
   plugins: [
     // First destroy the existing dist folder
-    new CleanWebpackPlugin(['hosted']),
+    new CleanWebpackPlugin(['./hosted/*']),
 
     // Compress JS files
     new webpack.optimize.UglifyJsPlugin(),
 
     // Set export path for generated style sheets
-    new ExtractTextPlugin('./hosted/style/[name].css'),
+    new ExtractTextPlugin('./style/[name].css'),
 
     // Build HTML
     new HtmlWebpackPlugin(Object.assign(
-      { filename: './hosted/index.html', template: './ui_src/templates/index.ejs' },
+      { filename: './index.html', template: './ui_src/templates/index.ejs' },
       templateConfig
-    ))
-    ,
+    )),
 
     // Copy static assets over
     new CopyWebpackPlugin([
-      { from: 'assets', to: 'hosted/assets/' }
+      { from: 'assets', to: 'assets/' }
     ])
   ],
   sassLoader: {
