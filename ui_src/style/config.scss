@@ -10,10 +10,10 @@ $breakpoints: (
 );
 
 $color-palettes: (
-  grey: (
+  greys: (
     50: #FAFAFA,
     100: #F5F5F5,
-    200: #EEEEEE,
+    200: #EEE,
     300: #E0E0E0,
     400: #BDBDBD,
     500: #9E9E9E,
@@ -21,9 +21,9 @@ $color-palettes: (
     700: #616161,
     800: #424242,
     900: #212121,
-    1000: #111111
+    1000: #111
   ),
-  lightgreen: (
+  greens: (
     50: #F1F8E9,
     100: #DCEDC8,
     200: #C5E1A5,
@@ -47,13 +47,13 @@ $theme-borders: (
 //
 $theme-colors: (
   filter: (
-    background-1: ( lightgreen, 300 ),
-    background-2: ( lightgreen, 900 )
+    background-1: ( greens, 300 ),
+    background-2: ( greens, 900 )
   ),
   main-content: (
-    backdrop: ( grey, 1000 ),
-    background: ( grey, 600 ),
-    foreground: ( grey, 100 )
+    backdrop: ( greys, 800 ),
+    background: ( greys, 300 ),
+    foreground: ( greys, 800 )
   )
 );
 

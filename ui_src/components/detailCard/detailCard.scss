@@ -1,0 +1,21 @@
+@import '../../style/config';
+
+.detail-card {
+  background-color: color(main-content, background);
+  border: 1px solid black;
+  border-radius: 1rem;
+  color: color(main-content, foreground);
+  padding: 1rem;
+  width: 100%;
+
+  &.open {
+    display: block;
+  }
+  &.closed {
+    display: none;
+  }
+
+  textarea {
+    resize: none;
+  }
+}

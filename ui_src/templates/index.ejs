@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="Matthew W. Jackson <mwj8410@gmail.com>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
 
     <title>InMotion - Demo Application</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="lib/bootstrap.min.css" media="screen" title="Bootstrap" />
+    <link rel="stylesheet" href="lib/font-awesome.min.css" media="screen" title="Font-Awesome" />
     <link rel="stylesheet" href="style/main.css" media="screen" title="Default" />
 
   </head>
@@ -15,8 +17,10 @@
     <div id="application-viewport"></div>
 
     <!-- Application Requirements -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.min.js"></script>
+    <script src="lib/jquery.min.js"></script> <!-- Must be before bootstrap -->
+    <script src="lib/bootstrap.min.js"></script>
+		<script src="lib/react.min.js"></script>
+		<script src="lib/react-dom.min.js"></script>
 
     <!-- Application Files Injected Here-->
   </body>

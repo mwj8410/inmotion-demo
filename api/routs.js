@@ -1,14 +1,12 @@
 const movieController = require('./controllers/movie.controller');
-const userController = require('./controllers/user.controller');
 
 module.exports = [
   // Movie handlers
-  [ 'GET', 'movie/:id', movieController.getMovie ],
-  [ 'GET', 'movie/all', movieController.getMoviesAll ],
-  [ 'GET', 'movie/search', movieController.getMoviesBySearch ],
+  [ 'GET', 'movie', movieController.getMovie ],
+  [ 'GET', 'movieSearch', movieController.getMoviesBySearch ],
 
-  [ 'POST', 'movie', movieController.createMovie ],
+  [ 'PUT', 'movie/:id', movieController.updateMovie ],
 
-  // User handlers
-   ['GET', 'user:id?', userController.getUser ]
+  [ 'POST', 'movie', movieController.createMovie ]
+
 ];

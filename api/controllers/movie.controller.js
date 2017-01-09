@@ -16,15 +16,7 @@ module.exports = {
   },
 
   getMovie: (req, resp) => {
-    Movie.find(req.query.id, (err, docs) => {
-      if (!err) {
-        resp.send(docs);
-      }
-    });
-  },
-
-  getMoviesAll: (req, resp) => {
-    Movie.find({}, (err, docs) => {
+    Movie.find({ _id: req.query.id }, (err, docs) => {
       if (!err) {
         resp.send(docs);
       }
@@ -32,10 +24,29 @@ module.exports = {
   },
 
   getMoviesBySearch: (req, resp) => {
-    Movie.find(req.query.title, (err, docs) => {
+    var query;
+    if (!req.query.title) {
+      query = {};
+    } else {
+      query = {
+        title: req.query.title
+      }
+    }
+    Movie.find(query, (err, docs) => {
       if (!err) {
         resp.send(docs);
       }
     });
   },
+
+  updateMovie: (req, resp) => {
+    Movie.update(
+      { _id: req.body.id },
+      req.body,
+      {},
+      () => {
+        resp.send();
+      }
+    );
+  }
 };

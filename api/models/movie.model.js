@@ -6,7 +6,7 @@ var schema = new mongoDb.Schema({
   title: String,
   genre: String,
   year: String,
-  actors: []
+  actors: String
 });
 
 module.exports = mongoDb.model('Movie', schema);

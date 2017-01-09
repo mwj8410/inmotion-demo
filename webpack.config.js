@@ -57,7 +57,13 @@ module.exports = {
 
     // Copy static assets over
     new CopyWebpackPlugin([
-      { from: 'assets', to: 'assets/' }
+      { from: 'assets', to: 'assets/' },
+      { from: 'node_modules/bootstrap/dist/css/bootstrap.min.css', to: 'lib/' },
+      { from: 'node_modules/bootstrap/dist/js/bootstrap.min.js', to: 'lib/' },
+      { from: 'node_modules/font-awesome/css/font-awesome.min.css', to: 'lib/' },
+      { from: 'node_modules/jquery/dist/jquery.min.js', to: 'lib/' },
+      { from: 'node_modules/react/dist/react.min.js', to: 'lib/' },
+      { from: 'node_modules/react-dom/dist/react-dom.min.js', to: 'lib/' }
     ])
   ],
   sassLoader: {

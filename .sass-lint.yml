@@ -39,7 +39,7 @@ rules:
     - style: short
   hex-notation:
     - 1
-    - style: lowercase
+    - style: uppercase
   id-name-format:
     - 1
     - convention: hyphenatedlowercase
